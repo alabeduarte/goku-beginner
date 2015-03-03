@@ -11,4 +11,14 @@ describe Player do
       subject.play_turn warrior
     end
   end
+
+  context 'It is too dark to see anything, but you smell sludge nearby.' do
+    it 'feels the environment before walk' do
+      warrior = double(:walk!)
+
+      expect(warrior).to receive(:feel)
+
+      subject.play_turn warrior
+    end
+  end
 end
