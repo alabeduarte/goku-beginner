@@ -21,6 +21,15 @@ describe Player do
 
         subject.play_turn warrior
       end
+
+      it 'attacks when there is anything ahead' do
+        something = ['s']
+        warrior = double(walk!: {}, feel: something)
+
+        expect(warrior).to receive(:attack!)
+
+        subject.play_turn warrior
+      end
     end
   end
 
