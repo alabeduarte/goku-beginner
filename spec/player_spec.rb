@@ -4,7 +4,7 @@ describe Player do
 
   context 'You see before yourself a long hallway with stairs at the end. There is nothing in the way.' do
     it 'walks forward' do
-      warrior = double(:walk!)
+      warrior = double(:walk!, feel: [])
 
       expect(warrior).to receive(:walk!)
 
@@ -14,7 +14,8 @@ describe Player do
 
   context 'It is too dark to see anything, but you smell sludge nearby.' do
     it 'feels the environment before walk' do
-      warrior = double(:walk!)
+      nothing = []
+      warrior = double(walk!: {}, feel: nothing)
 
       expect(warrior).to receive(:feel)
 
